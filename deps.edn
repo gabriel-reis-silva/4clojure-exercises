@@ -1,0 +1,15 @@
+{:paths ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}}
+
+ :aliases {:dev {:extra-paths ["dev"]}
+           :build {:replace-deps {seancorfield/depstar {:mvn/version "2.0.216"}}
+                   :exec-fn hf.depstar/uberjar
+                   :exec-args {:aot true
+                               :jar pgweb-unified-transaction-stream.jar
+                               :main-class core}}
+           :test {:extra-paths ["test"]
+                  :extra-deps {nubank/matcher-combinators {:mvn/version "3.1.4"}
+                               lambdaisland/kaocha {:mvn/version "1.0.829"}
+                               org.clojure/test.check {:mvn/version "1.1.0"}}}
+           :lint {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.03.31"}}
+                  :main-opts ["-m" "clj-kondo.main" "--lint" "src"]} clj -}}
