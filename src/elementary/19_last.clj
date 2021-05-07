@@ -22,8 +22,12 @@
 (= (last ["b" "c" "d"]) "d")
 
 (prn "There are many ways to solve this exercise, but now I'll show how to solve without use last")
-(defn aa [list]
-(->> (nth list
-            (- (count '(1 2 3))) 1)))
 
-(aa '(1 2 3))
+(defn ultimo [lista]
+  (nth lista (- (count lista) 1)))
+
+(ultimo [1 2 3 4])
+
+(prn "Now using anonymous function without 'last' function")
+;; The easiest way :)
+#(nth % (- (count %) 1)) 
